@@ -5,7 +5,6 @@ const SearchBar = () => {
 
     const [searchValue, setSearchValue] = useState('');
     const handleInputChange = (event) => {
-        console.log(event)
         setSearchValue(event.target.value)
     }
 
@@ -14,11 +13,17 @@ const SearchBar = () => {
 
     }
 
+    const displayButton = searchValue.length > 0
+
+    console.log(displayButton)
+
     
     return (
     <div>
         <input type="text" value = {searchValue} onChange = {handleInputChange} />
-        <button onClick={handleClearClick}>Clear</button>
+
+        {displayButton && <button onClick={handleClearClick}>Clear</button> }
+
     </div>
     )   
     
