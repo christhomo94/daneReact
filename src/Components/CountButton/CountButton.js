@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import reactDom from "react-dom";
 import './CountButton.css';
 
@@ -12,6 +12,12 @@ const CountButton = (props) => {
   const buttonStyles = {
     backgroundColor: props.buttonColor
   }
+
+  useEffect(() => {
+    if (currentCount === 50){
+      alert("You are at 10")
+    }
+  }, [currentCount ]);
 
   return (
     <div>
