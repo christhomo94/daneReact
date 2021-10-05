@@ -21,25 +21,23 @@ const SearchBar = () => {
     };
 
     const displayButton = searchValue.length > 0;
+
+    const filteredProducts = products.filter((product) => {
+        return product.includes(searchValue);
+    })
     
     return (
     <div>
         <input type="text" value = {searchValue} onChange = {handleInputChange} />
-
         {displayButton && <button onClick={handleClearClick}>Clear</button>}
 
         <ul>
-        {
-            products.map((product) => {
+        {filteredProducts.map((product) => {
                 return <li key={product}> {product} </li> 
-            })
-        }
-        </ul>
-
-      
+            })}
+        </ul>   
     </div>
-    )   
-    
+    )       
 };
 
 export default SearchBar
