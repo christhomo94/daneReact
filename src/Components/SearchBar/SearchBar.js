@@ -20,7 +20,7 @@ const SearchBar = (props) => {
     
     return (
     <div>
-        <input type="text" value = {searchValue} onChange = {handleInputChange} />
+        <input type="text" value = {searchValue} onChange = {handleInputChange}/>
         {displayButton && <button onClick={handleClearClick}>Clear</button>}
 
         <ul>
