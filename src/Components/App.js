@@ -9,15 +9,15 @@ const App = () => {
   const [productsState, setProductsState] = useState([]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setProductsState([
-        'Tooth Paste',
-        'Tooth Brush',
-        'Mouth Wash',
-        'Dental Floss',
-        'Mouth Guard'
-      ])
-    }, 2000)
+
+    fetch('https://fakestoreapi.com/products')
+      .then((res) => res.json())
+      .then((productsArray) => {
+        const newProductsState = productsArray.map((product) =>{
+          return product.title
+        })
+        setProductsState(newProductsState)
+      })
   }, [])
 
   const hasProducts = productsState.length > 0;
